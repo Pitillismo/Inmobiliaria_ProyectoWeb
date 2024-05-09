@@ -1,0 +1,94 @@
+[
+    {
+        "model": "app.usuario",
+        "pk": 4,
+        "fields": {
+            "nombres": "Juan",
+            "apellidos": "Pérez",
+            "rut": "1234567832",
+            "direccion": "Av. Libertad 123",
+            "telefono": "987654321",
+            "tipo_usuario": "arrendatario",
+            "correo_electronico": "juan.perez@example.com"
+        }
+    },
+    {
+        "model": "app.usuario",
+        "pk": 5,
+        "fields": {
+            "nombres": "María",
+            "apellidos": "González",
+            "rut": "1234567891",
+            "direccion": "Calle 123",
+            "telefono": "123456789",
+            "tipo_usuario": "arrendador",
+            "correo_electronico": "maria.gonzalez@example.com"
+        }
+    },
+    {
+        "model": "app.usuario",
+        "pk": 6,
+        "fields": {
+            "nombres": "Carlos",
+            "apellidos": "Martínez",
+            "rut": "1234567892",
+            "direccion": "Av. Providencia 456",
+            "telefono": "555555555",
+            "tipo_usuario": "arrendatario",
+            "correo_electronico": "carlos.martinez@example.com"
+        }
+    },
+    {
+        "model": "app.usuario",
+        "pk": 7,
+        "fields": {
+            "nombres": "Ana",
+            "apellidos": "López",
+            "rut": "1234567893",
+            "direccion": "Calle Las Flores 789",
+            "telefono": "333333333",
+            "tipo_usuario": "arrendador",
+            "correo_electronico": "ana.lopez@example.com"
+        }
+    },
+    {
+        "model": "app.usuario",
+        "pk": 8,
+        "fields": {
+            "nombres": "Pedro",
+            "apellidos": "Sánchez",
+            "rut": "1234567894",
+            "direccion": "Av. Kennedy 1010",
+            "telefono": "999999999",
+            "tipo_usuario": "arrendatario",
+            "correo_electronico": "pedro.sanchez@example.com"
+        }
+    },
+    {
+        "model": "app.usuario",
+        "pk": 9,
+        "fields": {
+            "nombres": "Laura",
+            "apellidos": "Ramírez",
+            "rut": "1234567895",
+            "direccion": "Calle Nueva 456",
+            "telefono": "777777777",
+            "tipo_usuario": "arrendador",
+            "correo_electronico": "laura.ramirez@example.com"
+        }
+    },
+    {
+        "model": "app.usuario",
+        "pk": 10,
+        "fields": {
+            "nombres": "Javier",
+            "apellidos": "Gutiérrez",
+            "rut": "1234567896",
+            "direccion": "Av. Los Robles 789",
+            "telefono": "888888888",
+            "tipo_usuario": "arrendatario",
+            "correo_electronico": "javier.gutierrez@example.com"
+        }
+    }
+    
+]

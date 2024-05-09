@@ -1,0 +1,142 @@
+[
+    {
+        "model": "app.inmueble",
+        "pk": 3,
+        "fields": {
+            "nombre": "casa 3",
+            "direccion": "Providencia",
+            "descripcion": "Casa",
+            "imagen": "inmueble-3.jpg",
+            "precio": "1200000",
+            "comuna": 118,
+            "disponible": true,
+            "m2_construidos": "110.00",
+            "m2_terreno": "150.00",
+            "cantidad_estacionamientos": 2,
+            "cantidad_habitaciones": 3,
+            "cantidad_banos": 2,
+            "tipo_de_inmueble": "casa",
+            "propietario": 4
+        }
+    },
+    {
+        "model": "app.inmueble",
+        "pk": 4,
+        "fields": {
+            "nombre": "departamento 1",
+            "direccion": "Providencia",
+            "descripcion": "Departamento",
+            "imagen": "images (1).jpg",
+            "precio": "800000",
+            "comuna": 118,
+            "disponible": true,
+            "m2_construidos": "80.00",
+            "m2_terreno": "0.00",
+            "cantidad_estacionamientos": 1,
+            "cantidad_habitaciones": 2,
+            "cantidad_banos": 1,
+            "tipo_de_inmueble": "departamento",
+            "propietario": 5
+        }
+    },
+    {
+        "model": "app.inmueble",
+        "pk": 5,
+        "fields": {
+            "nombre": "parcela 1",
+            "direccion": "Lo Barnechea",
+            "descripcion": "Parcela",
+            "imagen": "images (1).jpg",
+            "precio": "2000000",
+            "comuna": 104,
+            "disponible": true,
+            "m2_construidos": "0.00",
+            "m2_terreno": "5000.00",
+            "cantidad_estacionamientos": 0,
+            "cantidad_habitaciones": 0,
+            "cantidad_banos": 0,
+            "tipo_de_inmueble": "parcela",
+            "propietario": 6
+        }
+    },
+    {
+        "model": "app.inmueble",
+        "pk": 6,
+        "fields": {
+            "nombre": "departamento 2",
+            "direccion": "Santiago Centro",
+            "descripcion": "Departamento",
+            "imagen": "images.jpg",
+            "precio": "950000",
+            "comuna": 131,
+            "disponible": true,
+            "m2_construidos": "70.00",
+            "m2_terreno": "0.00",
+            "cantidad_estacionamientos": 1,
+            "cantidad_habitaciones": 3,
+            "cantidad_banos": 2,
+            "tipo_de_inmueble": "departamento",
+            "propietario": 7
+        }
+    },
+    {
+        "model": "app.inmueble",
+        "pk": 7,
+        "fields": {
+            "nombre": "casa 4",
+            "direccion": "Ñuñoa",
+            "descripcion": "Casa",
+            "imagen": "images (1).jpg",
+            "precio": "1500000",
+            "comuna": 111,
+            "disponible": true,
+            "m2_construidos": "120.00",
+            "m2_terreno": "200.00",
+            "cantidad_estacionamientos": 2,
+            "cantidad_habitaciones": 4,
+            "cantidad_banos": 3,
+            "tipo_de_inmueble": "casa",
+            "propietario": 8
+        }
+    },
+    {
+        "model": "app.inmueble",
+        "pk": 8,
+        "fields": {
+            "nombre": "departamento 3",
+            "direccion": "Las Condes",
+            "descripcion": "Departamento",
+            "imagen": "images.jpg",
+            "precio": "1300000",
+            "comuna": 131,
+            "disponible": true,
+            "m2_construidos": "90.00",
+            "m2_terreno": "0.00",
+            "cantidad_estacionamientos": 1,
+            "cantidad_habitaciones": 2,
+            "cantidad_banos": 2,
+            "tipo_de_inmueble": "departamento",
+            "propietario": 9
+        }
+    },
+    {
+        "model": "app.inmueble",
+        "pk": 9,
+        "fields": {
+            "nombre": "parcela 2",
+            "direccion": "Curacaví",
+            "descripcion": "Parcela",
+            "imagen": "inmueble-3.jpg",
+            "precio": "3000000",
+            "comuna": 90,
+            "disponible": true,
+            "m2_construidos": "0.00",
+            "m2_terreno": "10000.00",
+            "cantidad_estacionamientos": 0,
+            "cantidad_habitaciones": 0,
+            "cantidad_banos": 0,
+            "tipo_de_inmueble": "parcela",
+            "propietario": 10
+        }
+    }
+]

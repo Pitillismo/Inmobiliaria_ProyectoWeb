@@ -1,0 +1,26 @@
+Región: Metropolitana de Santiago
+  Comuna: Curacaví
+    Nombre: parcela 2
+    Descripción: Parcela
+
+  Comuna: Lo Barnechea
+    Nombre: parcela 1
+    Descripción: Parcela
+
+  Comuna: Ñuñoa
+    Nombre: casa 4
+    Descripción: Casa
+
+  Comuna: Providencia
+    Nombre: casa 3
+    Descripción: Casa
+    Nombre: departamento 1
+    Descripción: Departamento
+
+  Comuna: Santiago
+    Nombre: departamento 2
+    Descripción: Departamento
+    Nombre: departamento 3
+    Descripción: Departamento
+
+
