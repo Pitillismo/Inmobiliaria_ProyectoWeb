@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+from django.conf import settings
 
 # Create your models here.\
     
@@ -54,7 +56,7 @@ class Inmueble(models.Model):
     cantidad_habitaciones = models.PositiveIntegerField()
     cantidad_banos = models.PositiveIntegerField()
     tipo_de_inmueble=models.CharField(max_length=12, choices=TIPO_INMUEBLE_CHOISES)
-    propietario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    propietario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     
 
     

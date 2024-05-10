@@ -126,6 +126,7 @@ def dashboard(request):
         solicitudes = SolicitudArriendo.objects.filter(arrendatario=request.user.usuario)
         context['solicitudes'] = solicitudes
         return render(request, 'dashboard_arrendatario.html', context)
+    
     elif request.user.usuario.tipo_usuario == 'arrendador':
         inmuebles_propios = Inmueble.objects.filter(propietario=request.user.usuario)
         solicitudes_recibidas = SolicitudArriendo.objects.filter(inmueble__propietario=request.user.usuario)
@@ -151,4 +152,4 @@ def filter_inmuebles(request):
 
 
 def my_view(request):
-    messages.add_message(request, messages.INFO, 'Hello world.')
+    messages.add_message(request, messages.INFO, 'Mensaje de Prueba.')
