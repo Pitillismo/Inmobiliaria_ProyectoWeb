@@ -1,21 +1,23 @@
 {% extends 'base.html' %}
 
-
-{% block title %}Página de Inicio{% endblock %}
+{% block title %}Detalle del Inmueble{% endblock %}
 {% load static %}
 {% block content %}
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="/media/{{inmueble.imagen}}">
-        <div class="card-body">
-          <h5 class="card-title">{{inmueble.nombre}}</h5>
-          <p class="card-text">{{inmueble.descripcion}}</p>
-          <p>{{inmueble.comuna}}</p>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <img class="card-img-top img-fluid" src="{% if inmueble.imagen %}{{ inmueble.imagen.url }}{% else %}{% static 'images/default-image.jpg' %}{% endif %}" alt="Imagen de {{ inmueble.nombre }}">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ inmueble.nombre }}</h5>
+                    <p class="card-text">{{ inmueble.descripcion }}</p>
+                    <p>{{ inmueble.comuna }}</p>
+                    {% if user.usuario.tipo_usuario == 'arrendatario' %}
+                    <a href="{% url 'generar_solicitud_arriendo' inmueble.id %}" class="btn btn-primary">Generar Solicitud de Arriendo</a>
+                    {% endif %}
+                </div>
+            </div>
         </div>
-      </div>
-
-    
-    {% if user.usuario.tipo_usuario == 'arrendatario' %}
-    <a href="{% url 'generar_solicitud_arriendo' inmueble.id %}">Generar Solicitud de Arriendo</a>
-    {% endif %}
-    
+    </div>
+</div>
 {% endblock %}

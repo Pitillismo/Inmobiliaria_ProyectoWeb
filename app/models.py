@@ -64,10 +64,16 @@ class Inmueble(models.Model):
 
 
 class SolicitudArriendo(models.Model):
+    TIPO_ESTADO_CHOISES = [
+        ('pendiente','Pendiente'),
+        ('aceptado','Aceptado'),
+        ('rechazado','Rechazado'),   
+    ]
+     
     arrendatario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     inmueble = models.ForeignKey(Inmueble, on_delete=models.CASCADE)
     mensaje = models.TextField(blank=True)
+    estado =models.CharField(choices=TIPO_ESTADO_CHOISES, default='pendiente')
+    
     def __str__(self):
         return f"Solicitud de {self.inmueble.nombre} por {self.arrendatario.nombres} {self.arrendatario.apellidos}"    
-
-

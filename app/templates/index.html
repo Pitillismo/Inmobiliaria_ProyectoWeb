@@ -3,18 +3,32 @@
 {% block title %}Página de Inicio{% endblock %}
 {% load static %}
 {% block content %}
-    <h2>Bienvenido a mi sitio web!</h2>
-    <p>Este es el contenido de la página de inicio.</p>
-    
+<div class="text-center">
+    <h2>Bienvenidos a OnlyDepas!</h2>
+    <p> Encuentra casas y departamentos en arriendo y venta.</p>
+</div>
+<section class="container pt-5">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
     {% for inm in inmuebles %}
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="media/{{inm.imagen}}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{inm.nombre}}</h5>
-          <p class="card-text">{{inm.descripcion}}</p>
-          <p>{{inm.comuna}}</p>
-          <li><a href="{% url 'detalle' inm.id %}">detalle del inmueble</a></li>
+      <div class="col">
+        <div class="card h-100">
+            <img class="card-img-top" src="{% if inm.imagen %}{{ inm.imagen.url }}{% else %}{% static 'images/default-image.jpg' %}{% endif %}" alt="Imagen de inmueble">
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ inm.name }}</h5>
+            <p class="card-text text-justify">
+                {% if inm.descripcion|length > 100 %}
+                    {{ inm.descripcion|slice:":100" }}... <a href="{% url 'detalle' inm.id %}">más info</a>
+                {% else %}
+                    {{ inm.descripcion }}
+                {% endif %}
+            </p>
+          </div>
+          <div class="card-footer text-center">
+            <a href="{% url 'detalle' inm.id %}">Detalle del inmueble</a>
+          </div>
         </div>
       </div>
-    {% endfor %}
+    {% endfor %}  
+  </div>
+</section>
 {% endblock %}

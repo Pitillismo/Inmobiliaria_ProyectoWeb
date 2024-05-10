@@ -1,0 +1,10 @@
+.logo-navbar {
+    width: 50px;  /* Establece el ancho del logo a 50px */
+    height: auto; /* Mantiene la proporción del logo */
+}
+
+.nav-link i {
+    color: #6c757d; /* Gris suave, ajusta al color que prefieras */
+    font-size: 1.2em; /* Ajusta el tamaño según necesites */
+}
+

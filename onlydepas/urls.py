@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from app.views import registro_usuario,index,detalle_inmueble, generar_solicitud_arriendo,alta_inmueble,solicitudes_arrendador
+from app.views import registro_usuario,index,detalle_inmueble, generar_solicitud_arriendo,alta_inmueble,solicitudes_arrendador,dashboard, perfil_usuario
 from django.contrib.auth.views import LoginView, LogoutView
 from django.conf.urls.static import static
 
@@ -26,13 +26,17 @@ urlpatterns = [
     path('', index, name='index'),
     path('admin/', admin.site.urls),
     path('registro/', registro_usuario, name='registro_usuario'),
-    path('login/', LoginView.as_view(template_name='login.html'), name='login'),
+    path('login/', LoginView.as_view(
+        template_name='login.html',
+        redirect_authenticated_user=True,
+        extra_context={'next': '/dashboard'}
+    ), name='login'),
     path('logout/', LogoutView.as_view(next_page='index'), name='logout'),
     path('inmueble/<int:id>/',detalle_inmueble , name='detalle'),
-    
     path('inmuebles/<int:id>/generar-solicitud/', generar_solicitud_arriendo, name='generar_solicitud_arriendo'),
     path('alta-inmueble/', alta_inmueble, name='alta_inmueble'),
     path('solicitudes/', solicitudes_arrendador, name='solicitudes_arrendador'),
-    
+    path('dashboard/', dashboard, name='dashboard'),
+    path('perfil/', perfil_usuario, name='perfil_usuario'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

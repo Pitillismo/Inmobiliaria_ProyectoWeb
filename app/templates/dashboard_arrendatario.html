@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-4 text-center">
+    <h2>Mi Perfil - Arrendatario</h2>
+    <div class="my-profile">
+      <p><strong>Nombre:</strong> {{ user.usuario.nombres }} {{ user.usuario.apellidos }}</p>
+      <p><strong>Email:</strong> {{ user.usuario.correo_electronico }}</p>
+      <p><strong>Teléfono:</strong> {{ user.usuario.telefono }}</p>
+      <p><strong>Dirección:</strong> {{ user.usuario.direccion }}</p>
+      <!-- Añadir más campos si es necesario -->
+    </div>
+    <p><a href="{% url 'perfil_usuario' %}" class="btn btn-primary">Editar mi Perfil</a></p>
+
+    <h3>Buscar Inmuebles por Ubicación</h3>
+    <form method="GET" action="{% url 'dashboard' %}">
+        <label for="region">Región:</label>
+        <select name="region" id="region">
+            <option value="">Seleccionar Región</option>
+            {% for region in regiones %}
+                <option value="{{ region.id }}">{{ region.nombre }}</option>
+            {% endfor %}
+        </select>
+        <label for="comuna">Comuna:</label>
+        <select name="comuna" id="comuna">
+            <option value="">Seleccionar Comuna</option>
+            {% for comuna in comunas %}
+                <option value="{{ comuna.id }}">{{ comuna.nombre }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="btn btn-secondary">Filtrar</button>
+    </form>
+
+    <h3>Inmuebles Disponibles</h3>
+    <section class="container mx-auto pt-5">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4">
+          {% for inm in inmuebles %}
+            <div class="col">
+              <div class="card h-100">
+                  <img class="card-img-top" src="/media/{{inm.imagen}}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{ inm.name }}</h5>
+                  <p class="card-text text-justify">
+                      {% if inm.descripcion|length > 100 %}
+                          {{ inm.descripcion|slice:":100" }}... <a href="{% url 'detalle' inm.id %}">más info</a>
+                      {% else %}
+                          {{ inm.descripcion }}
+                      {% endif %}
+                  </p>
+              </div>
+                <div class="card-footer">
+                  <a href="{% url 'detalle' inm.id %}">Detalle del inmueble</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}  
+        </div>
+    </section>
+
+    <h3>Solicitudes de Arriendo</h3>
+    <section class="container mx-auto pt-5">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4">
+        {% for solicitud in solicitudes %}
+        
+        <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
+          <div class="card-header">{{solicitud.estado}}</div>
+          <div class="card-body">
+            <h5 class="card-title">{{ solicitud }}</h5>
+            <p>{{solicitud.mensaje}}</p>
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}
