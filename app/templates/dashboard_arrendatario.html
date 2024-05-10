@@ -1,41 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="container mt-4 text-center">
+<div class="container mt-4 text-center dashboard-arrendadatario">
     <h2>Mi Perfil - Arrendatario</h2>
-    <div class="my-profile">
+    <div class="my-profile p-3">
       <p><strong>Nombre:</strong> {{ user.usuario.nombres }} {{ user.usuario.apellidos }}</p>
       <p><strong>Email:</strong> {{ user.usuario.correo_electronico }}</p>
       <p><strong>Teléfono:</strong> {{ user.usuario.telefono }}</p>
       <p><strong>Dirección:</strong> {{ user.usuario.direccion }}</p>
-      <!-- Añadir más campos si es necesario -->
     </div>
     <p><a href="{% url 'perfil_usuario' %}" class="btn btn-primary">Editar mi Perfil</a></p>
 
     <h3>Buscar Inmuebles por Ubicación</h3>
-    <form method="GET" action="{% url 'dashboard' %}">
-        <label for="region">Región:</label>
-        <select name="region" id="region">
-            <option value="">Seleccionar Región</option>
-            {% for region in regiones %}
-                <option value="{{ region.id }}">{{ region.nombre }}</option>
-            {% endfor %}
-        </select>
-        <label for="comuna">Comuna:</label>
-        <select name="comuna" id="comuna">
-            <option value="">Seleccionar Comuna</option>
-            {% for comuna in comunas %}
-                <option value="{{ comuna.id }}">{{ comuna.nombre }}</option>
-            {% endfor %}
-        </select>
-        <button type="submit" class="btn btn-secondary">Filtrar</button>
+    <form method="GET" action="{% url 'dashboard' %}" class="form-inline justify-content-center">
+        <div class="form-group m-2">
+            <label for="region" class="form-label mr-2">Región:</label>
+            <select name="region" id="region" class="form-control">
+                <option value="">Seleccionar Región</option>
+                {% for region in regiones %}
+                    <option value="{{ region.id }}">{{ region.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group m-2">
+            <label for="comuna" class="form-label mr-2">Comuna:</label>
+            <select name="comuna" id="comuna" class="form-control">
+                <option value="">Seleccionar Comuna</option>
+                {% for comuna in comunas %}
+                    <option value="{{ comuna.id }}">{{ comuna.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-secondary m-2">Filtrar</button>
     </form>
 
     <h3>Inmuebles Disponibles</h3>
-    <section class="container mx-auto pt-5">
-        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4">
+    <section class="container mx-auto pt-5 text-center">
+        <div class="row justify-content-center">
           {% for inm in inmuebles %}
-            <div class="col">
+            <div class="col-md-4 mb-4">
               <div class="card h-100">
                   <img class="card-img-top" src="/media/{{inm.imagen}}" alt="Card image cap">
                 <div class="card-body">
@@ -57,20 +60,21 @@
         </div>
     </section>
 
-    <h3>Solicitudes de Arriendo</h3>
-    <section class="container mx-auto pt-5">
-        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4">
-        {% for solicitud in solicitudes %}
-        
-        <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
-          <div class="card-header">{{solicitud.estado}}</div>
-          <div class="card-body">
-            <h5 class="card-title">{{ solicitud }}</h5>
-            <p>{{solicitud.mensaje}}</p>
-          </div>
+    <h3 class="text-center mt-5">Solicitudes de Arriendo</h3>
+    <div class="card-container d-flex justify-content-center">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for solicitud in solicitudes %}
+            <div class="col">
+                <div class="card card-custom bg-light mb-3">
+                    <div class="card-header">{{ solicitud.estado }}</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ solicitud }}</h5>
+                        <p>{{ solicitud.mensaje }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-        </div>
-    </section>
+    </div>
 </div>
 {% endblock %}
