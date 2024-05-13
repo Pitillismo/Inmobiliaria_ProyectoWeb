@@ -3,19 +3,19 @@
 {% block title %}Página de Inicio{% endblock %}
 {% load static %}
 {% block content %}
-<h1>Solicitudes Recibidas</h1>
-<ul>
-    {% for solicitud in solicitudes %}
-    <li>
-        <p>Arrendatario: {{ solicitud.arrendatario }}</p>
-        <p>Inmueble: {{ solicitud.inmueble }}</p>
-        <p>Mensaje: {{ solicitud.mensaje }}</p>
-    </li>
-    {% empty %}
-    <li>No hay solicitudes recibidas.</li>
-    {% endfor %}
-</ul>
-   
-
-
+<div class="container mt-4">
+    <h1 class="mb-4 text-center">Solicitudes Recibidas</h1>
+    <ul class="solicitud-list">
+        {% for solicitud in solicitudes %}
+        <li class="solicitud-item">
+            <p><strong>Arrendatario:</strong> {{ solicitud.arrendatario }}</p>
+            <p><strong>Inmueble:</strong> {{ solicitud.inmueble }}</p>
+            <p><strong>Mensaje:</strong> {{ solicitud.mensaje }}</p>
+        </li>
+        {% empty %}
+        <li class="solicitud-item">No hay solicitudes recibidas.</li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
+

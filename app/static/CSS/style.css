@@ -7,6 +7,32 @@
     color: #6c757d; /* Gris suave, ajusta al color que prefieras */
     font-size: 1.2em; /* Ajusta el tamaño según necesites */
 }
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    margin-right: 10px;  /* Asegura espacio entre los enlaces */
+    align-self: center;  /* Asegura que cada enlace individual también esté centrado */
+}
+
+.navbar-nav.ms-auto {
+    display:flex;
+    align-items: center;
+    /*margin-left: auto;  /* Empuja la lista de navegación hacia la derecha */
+}
+
+.navbar-text {
+    align-self: center;  /* Centra verticalmente el texto dentro de su contenedor */
+    margin-right: 10px;  /* Espacio antes del botón Cerrar sesión */
+    line-height: normal; /* Asegura que el line-height no esté afectando la alineación */
+    height: auto;        /* Asegura que la altura no esté limitando el alineamiento */
+}
+
+.nav-link:last-child {
+    margin-right: 0;  /* Elimina el margen derecho del último enlace */
+}
 
 .dashboard-arrendatario .row {
     justify-content: center; /* Centra las tarjetas en la fila para vistas responsivas */
@@ -16,3 +42,101 @@
     margin-bottom: 20px; /* Asegura un margen entre las tarjetas */
 }
 
+/* Estilos específicos para el formulario de actualizar inmuebles */
+.actualizar-inmueble {
+    max-width: 600px; /* Ancho máximo del contenedor */
+    margin: auto; /* Centra el contenedor en la página */
+}
+
+.actualizar-inmueble form input[type="text"],
+.actualizar-inmueble form input[type="file"],
+.actualizar-inmueble form input[type="number"],
+.actualizar-inmueble form select,
+.actualizar-inmueble form textarea {
+    width: 100%; /* Asegura que los campos ocupen todo el ancho disponible */
+    padding: 8px; /* Añade un poco de padding para mejor visualización */
+    margin-top: 5px; /* Espacio superior para separar los campos */
+    margin-bottom: 15px; /* Espacio inferior después de cada campo */
+    border: 1px solid #ccc; /* Borde sutil para los campos */
+}
+
+.actualizar-inmueble form button,
+.actualizar-inmueble form a.btn {
+    width: auto; /* Permite que el botón se ajuste al texto */
+    margin-right: 10px; /* Espacio entre botones */
+    padding: 8px 16px; /* Padding horizontal más grande para mejor toque */
+}
+
+/* Estilos específicos para el formulario de alta de inmuebles */
+.alta-inmueble {
+    max-width: 600px; /* Ancho máximo del contenedor */
+    margin: auto; /* Centra el contenedor en la página */
+}
+
+.alta-inmueble form input[type="text"],
+.alta-inmueble form input[type="file"],
+.alta-inmueble form input[type="number"],
+.alta-inmueble form select,
+.alta-inmueble form textarea {
+    width: 100%; /* Asegura que los campos ocupen todo el ancho disponible */
+    padding: 8px; /* Añade un poco de padding para mejor visualización */
+    margin-top: 5px; /* Espacio superior para separar los campos */
+    margin-bottom: 15px; /* Espacio inferior después de cada campo */
+    border: 1px solid #ccc; /* Borde sutil para los campos */
+}
+
+.alta-inmueble form button {
+    width: auto; /* Permite que el botón se ajuste al texto */
+    padding: 8px 16px; /* Padding horizontal más grande para mejor toque */
+    margin-top: 10px; /* Margen superior para el botón */
+}
+
+/* Estilos específicos para el formulario de edición de perfil */
+.editar-perfil {
+    max-width: 700px; /* Ancho máximo para contener el formulario */
+    margin: auto; /* Centra el contenedor horizontalmente */
+    padding: 20px; /* Padding para dar espacio interior */
+}
+
+.editar-perfil form {
+    background-color: #f8f9fa; /* Color de fondo claro para el formulario */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra sutil */
+}
+
+.editar-perfil form input[type="text"],
+.editar-perfil form input[type="email"],
+.editar-perfil form input[type="password"],
+.editar-perfil form select {
+    width: 100%; /* Asegura que los campos ocupen todo el ancho disponible */
+    padding: 10px; /* Añade un padding cómodo */
+    margin-top: 5px; /* Espacio arriba de cada campo */
+    margin-bottom: 10px; /* Espacio abajo de cada campo */
+    border: 1px solid #ced4da; /* Borde sutil */
+}
+
+.editar-perfil form button {
+    padding: 10px 0; /* Padding superior e inferior más amplio para el botón */
+    margin-top: 20px; /* Espacio antes del botón */
+    background-color: #007bff; /* Color azul para el botón */
+    color: white; /* Texto blanco para mayor contraste */
+    border-radius: 5px; /* Bordes redondeados para el botón */
+}
+
+.solicitud-list {
+    list-style: none;  /* Elimina los puntos de lista */
+    padding: 0;  /* Elimina el padding predeterminado */
+}
+
+.solicitud-item {
+    background-color: rgba(33, 37, 41, 0.8); /* Gris oscuro con transparencia */
+    color: white;  /* Texto blanco para mejor contraste */
+    border-radius: 8px;  /* Bordes redondeados */
+    padding: 15px;  /* Espaciado interno */
+    margin-bottom: 10px;  /* Espacio entre cajas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Sombra ligera para profundidad */
+}
+
+.solicitud-item p {
+    margin-bottom: 10px;  /* Espacio entre párrafos */
+}
