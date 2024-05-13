@@ -153,3 +153,24 @@ def filter_inmuebles(request):
 
 def my_view(request):
     messages.add_message(request, messages.INFO, 'Mensaje de Prueba.')
+@login_required
+def actualizar_inmueble(request, id):
+    inmueble = get_object_or_404(Inmueble, pk=id, propietario=request.user.usuario)
+    if request.method == 'POST':
+        form = InmuebleForm(request.POST, request.FILES, instance=inmueble)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Inmueble actualizado con éxito.")
+            return redirect('dashboard')
+    else:
+        form = InmuebleForm(instance=inmueble)
+    return render(request, 'actualizar_inmueble.html', {'form': form})
+
+@login_required
+def eliminar_inmueble(request, id):
+    inmueble = get_object_or_404(Inmueble, pk=id, propietario=request.user.usuario)
+    if request.method == 'POST':
+        inmueble.delete()
+        messages.success(request, "Inmueble eliminado con éxito.")
+        return redirect('dashboard')
+    return render(request, 'eliminar_inmueble.html', {'inmueble': inmueble})

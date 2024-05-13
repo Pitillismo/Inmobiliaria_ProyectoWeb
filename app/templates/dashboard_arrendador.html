@@ -12,6 +12,7 @@
         <p><strong>Dirección:</strong> {{ user.usuario.direccion }}</p>
       </div>
       <p><a href="{% url 'perfil_usuario' %}" class="btn btn-primary">Editar mi Perfil</a></p>
+      <p><a href="{% url 'alta_inmueble' %}" class="btn btn-success">Agregar Nuevo Inmueble</a></p>
     </div>
     <h2 class="text-center mt-4">Solicitudes Recibidas</h2>
     <section class="container text-center">
@@ -40,11 +41,14 @@
                 <h5 class="card-title">{{ inm.name }}</h5>
                 <p class="card-text text-justify">
                   {% if inm.descripcion|length > 100 %}
-                    {{ inm.descripcion|slice:":100" }}... <a href="{% url 'detalle' inm.id %}">más info</a>
+                    {{ inm.descripcion|slice:":100" }}...
                   {% else %}
                     {{ inm.descripcion }}
                   {% endif %}
                 </p>
+                <!-- Botones para actualizar y eliminar inmueble -->
+                <a href="{% url 'actualizar_inmueble' inm.id %}" class="btn btn-info">Actualizar</a>
+                <a href="{% url 'eliminar_inmueble' inm.id %}" class="btn btn-danger">Eliminar</a>
               </div>
               <div class="card-footer">
                 <a href="{% url 'detalle' inm.id %}">Detalle del inmueble</a>
@@ -58,4 +62,3 @@
     <p class="text-center mt-5">No tienes permiso para ver esta página.</p>
   {% endif %}
 {% endblock %}
-

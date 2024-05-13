@@ -13,7 +13,7 @@ class InmuebleForm(forms.ModelForm):
     class Meta:
         model = Inmueble
         exclude = ('propietario',)  # Excluimos el campo 'propietario' del formulario
-  
+        
         
 class SolicitudArriendoForm(forms.ModelForm):
     class Meta:

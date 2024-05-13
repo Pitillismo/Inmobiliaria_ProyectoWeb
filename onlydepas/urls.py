@@ -15,11 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from app.views import registro_usuario,index,detalle_inmueble, generar_solicitud_arriendo,alta_inmueble,solicitudes_arrendador,dashboard, perfil_usuario
+from django.urls import path
+from app.views import (
+    registro_usuario, index, detalle_inmueble, generar_solicitud_arriendo, alta_inmueble,
+    solicitudes_arrendador, dashboard, perfil_usuario, actualizar_inmueble, eliminar_inmueble
+)
 from django.contrib.auth.views import LoginView, LogoutView
 from django.conf.urls.static import static
-
 from onlydepas import settings
 
 urlpatterns = [
@@ -32,11 +34,14 @@ urlpatterns = [
         extra_context={'next': '/dashboard'}
     ), name='login'),
     path('logout/', LogoutView.as_view(next_page='index'), name='logout'),
-    path('inmueble/<int:id>/',detalle_inmueble , name='detalle'),
+    path('inmueble/<int:id>/', detalle_inmueble, name='detalle'),
     path('inmuebles/<int:id>/generar-solicitud/', generar_solicitud_arriendo, name='generar_solicitud_arriendo'),
     path('alta-inmueble/', alta_inmueble, name='alta_inmueble'),
+    path('inmueble/<int:id>/actualizar/', actualizar_inmueble, name='actualizar_inmueble'),
+    path('inmueble/<int:id>/eliminar/', eliminar_inmueble, name='eliminar_inmueble'),
     path('solicitudes/', solicitudes_arrendador, name='solicitudes_arrendador'),
     path('dashboard/', dashboard, name='dashboard'),
     path('perfil/', perfil_usuario, name='perfil_usuario'),
 ]
+
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
