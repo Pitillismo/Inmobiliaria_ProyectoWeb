@@ -30,6 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = []
+#CSRF_TRUSTED_ORIGINS = []
 
 LOGIN_REDIRECT_URL = 'index'
 LOGIN_URL = 'login'  # URL a la que se redirige si un usuario no está autenticado y trata de acceder a una vista protegida
@@ -88,7 +89,7 @@ DATABASES = {
         'NAME': os.environ.get('DATABASE_NAME'),
         'USER': os.environ.get('DATABASE_USER'),
         'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
-        'HOST': '127.0.0.1',
+        'HOST': os.environ.get('HOST_NAME'), #'127.0.0.1'
         'PORT': '5432',
     }
 }
